@@ -31,11 +31,16 @@ registration shape that setup writes (an exact-version `npx` runner).
 | `rea doctor --json` | node ✅, host ✅ (Ubuntu 24.04). hopper ❌, ghidra ❌, ida ❌ (no engine installed). `registration:claude_code` ❌ and `skill:identity` ❌ are expected, because both live in the project rather than at user level |
 
 ### Not done / blocked
-- **Native engine in the cloud container.** Ghidra 12.1.4 couldn't be
-  downloaded: the environment's network policy returns 403 for `github.com`
-  release assets. JDK 21 (`javac 21.0.12.1`) is present. To enable it, add
-  `github.com` and `objects.githubusercontent.com` to the environment's
-  allowed domains. Not needed for the Mac.
+- **Native engine in the cloud container: decided to do this on the Mac.**
+  Ghidra 12.1.4 couldn't be downloaded from GitHub (403). This is not the
+  network policy: with full network access, other hosts load normally. Cloud
+  sessions route all `github.com` traffic through a GitHub gateway that only
+  allows git operations and repositories attached to the session, so release
+  assets from other repos are refused whatever the network setting.
+  - SourceForge's `ghidra.mirror` is reachable and has 12.1.4. It wasn't used
+    because it's a third-party copy and the official checksum couldn't be
+    checked from the session.
+  - JDK 21 (`javac 21.0.12.1`) is present in the container.
 - **Hopper.** Not installed. It's commercial (demo mode available) and is
   intended for the Mac. See `docs/MAC-PICKUP.md`.
 - **The cloud container is ephemeral.** `node_modules/` is not committed, so
