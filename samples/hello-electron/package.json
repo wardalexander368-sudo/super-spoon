@@ -1,0 +1,6 @@
+{
+  "name": "hello-electron",
+  "version": "1.0.0",
+  "description": "Tiny known-good target for smoke-testing REA's JavaScript/Electron analysis.",
+  "main": "src/main.js"
+}

@@ -1,0 +1,10 @@
+node_modules/
+
+# Apps under investigation and the Evidence REA produces stay local:
+# they can contain third-party code. Only the folders are tracked.
+targets/*
+!targets/.gitkeep
+evidence/*
+!evidence/.gitkeep
+
+.DS_Store

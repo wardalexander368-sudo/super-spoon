@@ -1,0 +1,19 @@
+{
+  "name": "super-spoon",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reverse engineering workspace built on REA (Reverse Engineer Anything).",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
+  },
+  "scripts": {
+    "rea": "rea",
+    "doctor": "rea doctor --json",
+    "mcp": "rea mcp",
+    "smoke": "bash scripts/smoke-test.sh"
+  },
+  "devDependencies": {
+    "rea-agents": "6.4.0"
+  }
+}
