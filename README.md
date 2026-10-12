@@ -28,6 +28,7 @@ pseudocode from compiled apps. See [docs/MAC-PICKUP.md](docs/MAC-PICKUP.md).
 | `CLAUDE.md` | Project instructions for Claude |
 | `samples/hello-electron/` | Known-good target for the smoke test |
 | `scripts/smoke-test.sh` | End-to-end check (`npm run smoke`) |
+| `scripts/install-mac-autopull.sh` | Mac: hourly safe `git pull` via launchd (`--uninstall` to remove) |
 | `targets/` | Put apps under investigation here (git-ignored) |
 | `evidence/` | REA Evidence output (git-ignored) |
 | `investigations/` | Committed write-ups of each investigation |

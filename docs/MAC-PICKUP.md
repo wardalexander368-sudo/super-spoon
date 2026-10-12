@@ -125,6 +125,45 @@ Good first targets:
 - **A native macOS app** (Notes, Preview, your own builds): needs Hopper or
   Ghidra.
 
+## Keep the Mac copy updated (hourly pull)
+
+From the repo folder, run once:
+
+```bash
+bash scripts/install-mac-autopull.sh
+```
+
+This installs a launchd agent (`com.super-spoon.autopull`) that runs
+`scripts/autopull.sh` every hour and at login:
+
+- It only fast-forwards (`git pull --ff-only`), so it never merges, rebases
+  or discards anything.
+- It skips that hour if you have uncommitted changes to tracked files.
+  Ignored folders like `targets/` and `evidence/` don't count.
+- It logs an error and changes nothing if your local commits and GitHub's
+  have diverged. Run `git pull` yourself to sort that out.
+- It runs `npm install` when `package.json` or `package-lock.json` changed,
+  for example after a REA upgrade.
+
+Log: `~/Library/Logs/super-spoon-autopull.log`. Check it with:
+
+```bash
+tail ~/Library/Logs/super-spoon-autopull.log
+```
+
+To remove the agent: `bash scripts/install-mac-autopull.sh --uninstall`.
+If you move the repo folder, run the installer again from the new location.
+
+Troubleshooting:
+
+- **`Operation not permitted` in the log:** the repo is under Desktop,
+  Documents or Downloads, which macOS protects from background jobs. Move it
+  somewhere like `~/Rev_Eng` (avoid iCloud-synced folders for git repos in
+  any case) and reinstall. Alternatively, give `/bin/bash` Full Disk Access
+  in System Settings → Privacy & Security.
+- **`could not read Username` in the log:** git has no stored GitHub login
+  for background use. Run `gh auth login` and then `gh auth setup-git`.
+
 ## Upgrading REA
 
 Keep the version identical in all three places:
