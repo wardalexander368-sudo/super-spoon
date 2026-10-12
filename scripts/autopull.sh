@@ -35,10 +35,10 @@ log "updated $branch: ${before:0:7} -> ${after:0:7}"
 
 # Keep the pinned REA CLI in node_modules in step with package-lock.json.
 if ! git diff --quiet "$before" "$after" -- package.json package-lock.json; then
-  if out="$(npm install --no-audit --no-fund 2>&1)"; then
-    log "npm install: done"
+  if out="$(npm ci --no-audit --no-fund 2>&1)"; then
+    log "npm ci: done"
   else
-    log "error: npm install failed: ${out##*$'\n'}"
+    log "error: npm ci failed: ${out##*$'\n'}"
     exit 1
   fi
 fi

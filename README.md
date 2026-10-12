@@ -10,7 +10,7 @@ A reverse engineering workspace built on
 ## Quick start
 
 ```bash
-npm install       # Node 22.19+, 24.11+ or 26+
+npm ci            # Node 22.19+, 24.11+ or 26+; installs exactly what package-lock.json pins
 npm run smoke     # should print PASS
 claude            # REA's MCP server and skill load from this repo
 ```

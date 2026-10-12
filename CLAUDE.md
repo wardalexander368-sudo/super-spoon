@@ -13,7 +13,7 @@ feature.
 - `.claude/skills/reverse-engineer-anything/` is the workflow skill bundled
   with REA 6.4.0. Follow it for routing, summary-first work and evidence rules.
 - `package.json` pins `rea-agents` 6.4.0 so `npx rea ...` works offline after
-  `npm install`. Keep the version identical in `package.json`, `.mcp.json` and
+  `npm ci`. Keep the version identical in `package.json`, `.mcp.json` and
   the skill when upgrading (see `docs/MAC-PICKUP.md#upgrading-rea`).
 
 ## Folders
@@ -42,7 +42,7 @@ feature.
 ## Commands
 
 ```bash
-npm install          # installs the pinned REA CLI
+npm ci               # installs the pinned REA CLI (never rewrites package-lock.json)
 npm run smoke        # end-to-end check on samples/hello-electron
 npm run doctor       # REA readiness report (engines, registrations)
 npx rea --help       # full CLI

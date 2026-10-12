@@ -44,7 +44,7 @@ registration shape that setup writes (an exact-version `npx` runner).
 - **Hopper.** Not installed. It's commercial (demo mode available) and is
   intended for the Mac. See `docs/MAC-PICKUP.md`.
 - **The cloud container is ephemeral.** `node_modules/` is not committed, so
-  run `npm install` in each new session.
+  run `npm ci` in each new session.
 
 ### Ready to test
 - **Now (any machine with Node):** JavaScript/Electron apps and ASARs, .NET

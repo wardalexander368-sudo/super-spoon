@@ -19,7 +19,7 @@ REA needs Node.js 22.x (>= 22.19), 24.x (>= 24.11) or 26+. Node 23 and 25 are
 
 ```bash
 node --version            # if missing or wrong: brew install node@24
-npm install               # installs rea-agents 6.4.0 into node_modules
+npm ci                    # installs rea-agents 6.4.0 exactly as package-lock.json pins it
 npm run smoke             # expect: PASS: evidence_id ev_...
 ```
 
@@ -142,7 +142,7 @@ This installs a launchd agent (`com.super-spoon.autopull`) that runs
   Ignored folders like `targets/` and `evidence/` don't count.
 - It logs an error and changes nothing if your local commits and GitHub's
   have diverged. Run `git pull` yourself to sort that out.
-- It runs `npm install` when `package.json` or `package-lock.json` changed,
+- It runs `npm ci` when `package.json` or `package-lock.json` changed,
   for example after a REA upgrade.
 
 Log: `~/Library/Logs/super-spoon-autopull.log`. Check it with:

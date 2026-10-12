@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # End-to-end check that REA is installed and can analyze a JavaScript/Electron app.
-# Needs only Node.js and `npm install`; no native engine (Hopper/Ghidra/IDA).
+# Needs only Node.js and `npm ci`; no native engine (Hopper/Ghidra/IDA).
 set -euo pipefail
 
 root="$(cd "$(dirname "$0")/.." && pwd)"
